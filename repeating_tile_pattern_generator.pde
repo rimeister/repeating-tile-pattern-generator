@@ -2,17 +2,17 @@
 class Circle {
   
   color c;
-  float xpos;
-  float ypos;
+  int xpos;
+  int ypos;
   
-  Circle() {
+  Circle(int xposTemp, int yposTemp) {
     c = color(153,10,90);
-    xpos = width/2;
-    ypos= height/2;
+    xpos = xposTemp;
+    ypos = yposTemp;
   }
   
   void display() {
-    stroke(0,0,0);
+    noStroke();
     fill(c);
     ellipse(xpos,ypos,100,100);
   }
@@ -20,20 +20,35 @@ class Circle {
 }
 
 // Variable declarations
-Circle circle1;
+int unit = 110;
+int count;
+Circle[] circles;
 
 void setup() {
+  
   // Set up canvas
   size(1000,1000);
   background(255,255,255);
   
-  // Initialize shapes
-  circle1 = new Circle();
+  int wideCount = width/unit;
+  int highCount = height/unit;
+  count = wideCount * highCount;
+  circles = new Circle[count];
+
+  int index = 0;
+  for (int y = 0; y < highCount; y++) {
+    for (int x = 0; x < wideCount; x++) {
+      circles[index++] = new Circle(x*unit,y*unit);
+    }
+  }
   
 }
 
 void draw() {
 
-  circle1.display();
+  background(255);
+  for (Circle circ : circles) {
+    circ.display();
+  }
 
 }
