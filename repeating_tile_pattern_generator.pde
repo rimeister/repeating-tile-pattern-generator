@@ -1,3 +1,12 @@
+// Global variables
+int docWidth = 700;
+int docHeight = 700;
+int artboardWidth = 200;
+int artboardHeight = 200;
+int unit = 110;
+int count;
+Circle[] circles;
+
 // Shape classes
 class Circle {
   
@@ -19,15 +28,10 @@ class Circle {
   
 }
 
-// Variable declarations
-int unit = 110;
-int count;
-Circle[] circles;
-
 void setup() {
   
   // Set up canvas
-  size(1000,1000);
+  size(700,700);
   background(255,255,255);
   
   int wideCount = width/unit;
@@ -44,11 +48,22 @@ void setup() {
   
 }
 
+// Functions
+void setupArtboard(int boardWidth, int boardHeight) {
+  int xPos = (docWidth/2) - (boardWidth/2);
+  int yPos = (docHeight/2) - (boardHeight/2);
+  rect(xPos,yPos,boardWidth,boardHeight);
+}
+
+
+
 void draw() {
 
   background(255);
-  for (Circle circ : circles) {
+  /*for (Circle circ : circles) {
     circ.display();
-  }
+  }*/
+  
+  setupArtboard(artboardWidth,artboardHeight);
 
 }
