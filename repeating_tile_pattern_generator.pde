@@ -4,6 +4,7 @@
 
 int artboardWidth = 200;
 int artboardHeight = 200;
+int count;
 int i;
 float startPosX;
 float startPosY;
@@ -17,10 +18,10 @@ Circle[] circles;
 class Circle {
   
   color c;
-  int xpos;
-  int ypos;
+  float xpos;
+  float ypos;
   
-  Circle(int xposTemp, int yposTemp) {
+  Circle(float xposTemp, float yposTemp) {
     c = color(153,10,90);
     xpos = xposTemp;
     ypos = yposTemp;
@@ -29,6 +30,7 @@ class Circle {
   void display() {
     noStroke();
     fill(c);
+    ellipseMode(CORNER);
     ellipse(xpos,ypos,100,100);
   }
   
@@ -68,6 +70,12 @@ void setup() {
   startPositions = calcStartPos(width,height,artboardWidth,artboardHeight);
   startPosX = startPositions[0];
   startPosY = startPositions[1];
+
+  // Circles array
+  int wideCount = width/artboardWidth + 1;
+  int highCount = height/artboardHeight + 1;
+  count = wideCount * highCount;
+  circles = new Circle[count];
 }
 
 // Draw to the canvas 
@@ -77,15 +85,17 @@ void draw() {
   setupArtboard(artboardWidth,artboardHeight);
 
   float elePosX = startPosX;
+  int eleIndex = 0;
 
+  // Nested while loops add Circle objects to array with proper X and Y coords
   while (elePosX < width) {
 
   float elePosY = startPosY;
 
+
     while (elePosY < height) {
 
-      fill(255,0,0);
-      rect(elePosX, elePosY, 20, 20);
+      circles[eleIndex++] = new Circle(elePosX,elePosY);
 
       elePosY += artboardHeight;
 
@@ -93,6 +103,11 @@ void draw() {
 
     elePosX += artboardWidth;
 
+  }
+
+  // For each Circle in the array, display it on the page
+  for (Circle circ : circles) {
+    circ.display();
   }
 
   //print(startPositions[1]);
