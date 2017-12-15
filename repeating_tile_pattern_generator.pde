@@ -8,6 +8,9 @@ int artboardWidth = 200;
 int artboardHeight = 200;
 int unit = 110;
 int count;
+int i;
+
+float[] startPositions;
 Circle[] circles;
 
 /***********************
@@ -44,13 +47,28 @@ void setupArtboard(int boardWidth, int boardHeight) {
   rect(xPos,yPos,boardWidth,boardHeight);
 }
 
+float[] calcStartPos(int documentWidth, int documentHeight, int artboardWidth, int artboardHeight) {
+  float xPos = 100;//( (documentWidth / 2) % artboardWidth ) - ( artboardWidth/2 );
+  float yPos = 100;//( (documentHeight / 2) % artboardHeight ) - ( artboardHeight/2 );
+
+ // print("The X start posiion is :" + xPos);
+ // print("The Y start posiion is :" + yPos);
+
+  float[] startPos = new float[2];
+  startPos[0] = xPos;
+  startPos[1] = yPos;
+
+  return startPos;
+
+}
+
 // Setup
 void setup() {
   
   // Set up canvas
   size(700,700);
   background(255,255,255);
-    
+  startPositions = calcStartPos(docWidth,docHeight,artboardWidth,artboardHeight);
 }
 
 // Draw to the canvas 
@@ -61,5 +79,12 @@ void draw() {
   
   // Draw the artboard
   setupArtboard(artboardWidth,artboardHeight);
+
+  //print(startPositions[1]);
+  while (i < 1) {
+    print("The X start position is :" + startPositions[0] + "\n");
+    print("The Y start position is :" + startPositions[1]);
+    i++;    
+  }
 
 }
