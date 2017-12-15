@@ -1,4 +1,7 @@
-// Global variables
+/***********************
+*** Global variables ***
+***********************/
+
 int docWidth = 700;
 int docHeight = 700;
 int artboardWidth = 200;
@@ -7,7 +10,10 @@ int unit = 110;
 int count;
 Circle[] circles;
 
-// Shape classes
+/***********************
+******* Classes ********
+***********************/
+
 class Circle {
   
   color c;
@@ -28,42 +34,32 @@ class Circle {
   
 }
 
-void setup() {
-  
-  // Set up canvas
-  size(700,700);
-  background(255,255,255);
-  
-  int wideCount = width/unit;
-  int highCount = height/unit;
-  count = wideCount * highCount;
-  circles = new Circle[count];
+/***********************
+****** Functions *******
+***********************/
 
-  int index = 0;
-  for (int y = 0; y < highCount; y++) {
-    for (int x = 0; x < wideCount; x++) {
-      circles[index++] = new Circle(x*unit,y*unit);
-    }
-  }
-  
-}
-
-// Functions
 void setupArtboard(int boardWidth, int boardHeight) {
   int xPos = (docWidth/2) - (boardWidth/2);
   int yPos = (docHeight/2) - (boardHeight/2);
   rect(xPos,yPos,boardWidth,boardHeight);
 }
 
+// Setup
+void setup() {
+  
+  // Set up canvas
+  size(700,700);
+  background(255,255,255);
+    
+}
 
-
+// Draw to the canvas 
 void draw() {
 
+  // White background
   background(255);
-  /*for (Circle circ : circles) {
-    circ.display();
-  }*/
   
+  // Draw the artboard
   setupArtboard(artboardWidth,artboardHeight);
 
 }
