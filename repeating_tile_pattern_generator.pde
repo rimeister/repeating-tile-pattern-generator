@@ -4,8 +4,8 @@
 
 int artboardWidth = 200;
 int artboardHeight = 200;
-int unit = 110;
-int count;
+//int unit = 110;
+//int count;
 int i;
 
 float[] startPositions;
@@ -46,8 +46,8 @@ void setupArtboard(int boardWidth, int boardHeight) {
 }
 
 float[] calcStartPos(int documentWidth, int documentHeight, int artboardWidth, int artboardHeight) {
-  float xPos = 100;//( (documentWidth / 2) % artboardWidth ) - ( artboardWidth/2 );
-  float yPos = 100;//( (documentHeight / 2) % artboardHeight ) - ( artboardHeight/2 );
+  float xPos = ( (documentWidth / 2) % artboardWidth ) - ( artboardWidth/2 );
+  float yPos = ( (documentHeight / 2) % artboardHeight ) - ( artboardHeight/2 );
 
  // print("The X start posiion is :" + xPos);
  // print("The Y start posiion is :" + yPos);
