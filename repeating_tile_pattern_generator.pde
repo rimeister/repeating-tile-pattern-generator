@@ -2,8 +2,6 @@
 *** Global variables ***
 ***********************/
 
-int docWidth = 700;
-int docHeight = 700;
 int artboardWidth = 200;
 int artboardHeight = 200;
 int unit = 110;
@@ -42,8 +40,8 @@ class Circle {
 ***********************/
 
 void setupArtboard(int boardWidth, int boardHeight) {
-  int xPos = (docWidth/2) - (boardWidth/2);
-  int yPos = (docHeight/2) - (boardHeight/2);
+  int xPos = (width/2) - (boardWidth/2);
+  int yPos = (height/2) - (boardHeight/2);
   rect(xPos,yPos,boardWidth,boardHeight);
 }
 
@@ -68,7 +66,7 @@ void setup() {
   // Set up canvas
   size(700,700);
   background(255,255,255);
-  startPositions = calcStartPos(docWidth,docHeight,artboardWidth,artboardHeight);
+  startPositions = calcStartPos(width,height,artboardWidth,artboardHeight);
 }
 
 // Draw to the canvas 
