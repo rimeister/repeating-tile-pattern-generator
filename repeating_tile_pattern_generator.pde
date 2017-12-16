@@ -65,6 +65,7 @@ void setup() {
   
   // Set up canvas
   size(700,700);
+  noLoop(); // Stops draw() from looping, not needed for this
   background(155);
   noStroke();
   startPositions = calcStartPos(width,height,artboardWidth,artboardHeight);
