@@ -119,3 +119,14 @@ void draw() {
   }
 
 }
+
+
+/****************************************/
+/****************************************/
+/****** Thoughts for next steps *********/
+/****************************************/
+/****************************************/
+
+-- Figure out how to make repeating stripes and waves inside a shape (kind of like this: https://www.pinterest.ca/pin/575757133603591961/)
+-- Once static variables are working in the code to control the params (e.g., randomness amount, shape density, variance, scale, etc/), I can begin thinking about a UI for controlling those variables.
+-- Figure out how to make random polygons (e.g., four-side/five-sided shapes that have the vertices at somewhat random places -- not perfect squares or rectangles.
